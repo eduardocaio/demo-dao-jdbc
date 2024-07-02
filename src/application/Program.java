@@ -9,6 +9,7 @@ import java.util.Date;
 import java.util.List;
 
 public class Program {
+
     public static void main(String[] args) {
 
         SellerDao sellerDao = DaoFactory.createSellerDao();
@@ -19,9 +20,16 @@ public class Program {
 
         System.out.println(seller);
 
-        System.out.println("=====TESTE 2: seller findByDepartment=====");
+        System.out.println("\n=====TESTE 2: seller findByDepartment=====");
         Department department = new Department(null, 2);
         List<Seller> list = sellerDao.findByDepartment(department);
+
+        for(Seller obj : list){
+            System.out.println(obj);
+        }
+
+        System.out.println("\n=====TESTE 3: seller findAll=====");
+        list = sellerDao.findAll();
 
         for(Seller obj : list){
             System.out.println(obj);
